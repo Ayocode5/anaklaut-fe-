@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero {
+	@apply place-items-start;
+}
+
+.btn {
+	@apply border-none;
+}
+
+.btn-primary {
+	@apply bg-indigo-700;
+}
+
+.btn-primary:hover {
+	@apply bg-indigo-600;
+}
+
+.btn-secondary {
+	@apply bg-gray-400;
+}
+
+.btn-secondary:hover {
+	@apply bg-gray-500;
+}
+
+.input-ghost:focus {
+	@apply bg-gray-50;
+}
+
+.navbar {
+	@apply mx-4 md:mx-16 my-2;
+}
+
+.scrollbar::-webkit-scrollbar {
+	width: 0px;
+	background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.scrollbar {
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE 10+ */
+}
+
+.stretched-link {
+	@apply absolute inset-0 z-10 cursor-pointer;
+}
+
+/* slider */
+.slider {
+	@apply flex my-4 flex-col;
+}
+
+.slider .preview {
+	@apply mb-2 px-3;
+	width: 345px;
+	height: 320px;
+}
+
+@screen md {
+	.slider {
+		@apply flex-row;
+	}
+
+	.slider .preview {
+		height: 609px;
+		width: 620px;
+	}
+}
