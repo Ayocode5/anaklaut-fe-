@@ -30,16 +30,16 @@ export default {
   },
 
   mounted() {
-    // let externalScript = document.createElement("script"); //load Mitrans Snap.js
-    // externalScript.setAttribute(
-    //   "src",
-    //   "https://app.sandbox.midtrans.com/snap/snap.js"
-    // );
-    // externalScript.setAttribute(
-    //   "data-client-key",
-    //   "SB-Mid-client-OPf5-6qjuxV6DrHf"
-    // );
-    // document.head.appendChild(externalScript);
+    let externalScript = document.createElement("script"); //load Mitrans Snap.js
+    externalScript.setAttribute(
+      "src",
+      "https://app.sandbox.midtrans.com/snap/snap.js"
+    );
+    externalScript.setAttribute(
+      "data-client-key",
+      "SB-Mid-client-OPf5-6qjuxV6DrHf"
+    );
+    document.head.appendChild(externalScript);
   },
 };
 </script>

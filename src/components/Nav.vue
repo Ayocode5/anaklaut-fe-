@@ -135,7 +135,7 @@
                     stroke-linejoin="round"
                   />
                 </svg>
-                <h1 style="margin-left: -18px">{{ totalOrder }}</h1>
+                <h1 style="margin-left: -18px; margin-bottom: 2px; color: gray">{{ totalOrder }}</h1>
               </router-link>
             <!-- end icon cart -->
 

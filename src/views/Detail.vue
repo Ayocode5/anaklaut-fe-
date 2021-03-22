@@ -8,7 +8,7 @@
       <div class="slider">
         <div class="preview">
           <div
-            class="shadow-xl item rounded-lg w-80 md:w-100 h-full overflow-hidden md:mx-20"
+            class="shadow-lg item rounded-lg w-80 md:w-100 h-full overflow-hidden mx-4 md:mx-20"
           >
             <img
               :src="product.product_galleries[0].image"
@@ -22,7 +22,7 @@
 
     <!-- Start section kiri -->
     <div
-      class="flex-1 md:sticky md:top-32 md:mr-48 md:px-10 md:py-6 md:h-100 mx-4 my-4 w-auto"
+      class="flex-1 md:sticky md:top-32 mt-0 md:mr-48 md:px-10 md:py-6 md:h-100 mx-5 my-4 w-auto"
     >
       <div class="hidden md:block">
         <h2 class="text-5xl text-blue-900 font-semibold mb-5">
@@ -42,7 +42,7 @@
             <p class="text-gray-400 flex text-xl font-medium mr-2">|</p>
             <p class="text-gray-400 flex text-xl font-medium mr-2">Stok</p>
             <p class="text-blue-900 flex text-xl font-medium mr-2">
-              {{ product.stock }}Kg
+              {{ product.stock }}
             </p>
           </div>
         </div>
@@ -192,7 +192,7 @@
             <div class="mx-4 md:mx-3 my-3 md:my-6">
               <p class="text-xl font-medium text-gray-400">Bergabung</p>
               <p class="text-xl font-medium text-blue-600">
-                {{ product.owner.created_at }}
+                2021
               </p>
             </div>
             <div class="mx-4 md:mx-3 my-3 md:my-6">
@@ -205,7 +205,6 @@
         <!-- {{ snap }} -->
       </div>
       <!-- End toko -->
-      <Footer />
     </div>
   </div>
 </template>
@@ -309,6 +308,12 @@ export default {
     },
 
     addToCart() {
+      if (!this.authenticated) {
+        alert("You are not logged in");
+        this.$router.replace({ name: "SignIn" });
+        return;
+      }
+
       this.$store.dispatch('cart/addProductToCart', {
         orders: [
           {
@@ -402,16 +407,16 @@ export default {
   },
 
   mounted() {
-    let externalScript = document.createElement("script"); //load Mitrans Snap.js
-    externalScript.setAttribute(
-      "src",
-      "https://app.sandbox.midtrans.com/snap/snap.js"
-    );
-    externalScript.setAttribute(
-      "data-client-key",
-      "SB-Mid-client-OPf5-6qjuxV6DrHf"
-    );
-    document.head.appendChild(externalScript);
+    // let externalScript = document.createElement("script"); //load Mitrans Snap.js
+    // externalScript.setAttribute(
+    //   "src",
+    //   "https://app.sandbox.midtrans.com/snap/snap.js"
+    // );
+    // externalScript.setAttribute(
+    //   "data-client-key",
+    //   "SB-Mid-client-OPf5-6qjuxV6DrHf"
+    // );
+    // document.head.appendChild(externalScript);
   },
 
   created() {

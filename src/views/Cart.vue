@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout h-auto md:h-screen">
+  <div v-if="state.content_loaded" class="checkout h-auto md:h-screen">
     <!-- start logo -->
     <!-- <a href="/">
 			<div class="flex-1 items-center justify-center md:mx-2 lg:flex p-5 md:p-6 w-auto sticky top-6">
@@ -129,20 +129,25 @@
 
             <!-- END: Cart empty wrapper -->
 
-            <div v-for="admin in carts.orders" :key="admin" class="p-2 bg-gray-50 rounded-lg my-2">
+            <div v-bind="counter"
+              v-for="(admin, idx) in carts.orders"
+              :key="idx"
+              class="p-2 bg-gray-50 rounded-lg my-2"
+            >
               <h5 class="font-semibold text-lg md:text-xl leading-8 my-2">
-                Nelayan Kece
+                {{ admin.order_from }}
               </h5>
               <!-- START: Table Item 1 -->
               <div
+                v-for="(order, index) in admin.order_data"
+                :key="index"
                 class="flex flex-start flex-wrap items-center mb-4 -mx-4"
                 data-row="1"
               >
                 <div class="px-4 flex-none">
                   <div class="" style="width: 90px; height: 90px">
                     <img
-                      :src="detailsImg1"
-                      alt="produk 1"
+                      :src="order.imageUrl"
                       class="object-cover rounded-xl w-full h-full"
                     />
                   </div>
@@ -178,52 +183,6 @@
                 </div>
               </div>
               <!-- END: Table Item 1 -->
-
-              <!-- START: Table Item 2 -->
-              <div
-                class="flex flex-start flex-wrap items-center mb-4 -mx-4"
-                data-row="2"
-              >
-                <div class="px-4 flex-none">
-                  <div class="" style="width: 90px; height: 90px">
-                    <img
-                      :src="detailsImg1"
-                      alt="chair office 2"
-                      class="object-cover rounded-xl w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div class="px-4 w-auto md:w-5/12 flex-1">
-                  <div class="">
-                    <h5 class="font-semibold text-lg md:text-xl leading-8">
-                      Kepiting Mantap
-                    </h5>
-                    <h6
-                      class="font-semibold text-base md:text-lg block md:hidden"
-                    >
-                      IDR 65.000
-                    </h6>
-                  </div>
-                </div>
-                <div
-                  class="px-4 w-auto md:w-5/12 flex-none md:flex-1 hidden md:block"
-                >
-                  <div class="">
-                    <h6 class="font-semibold text-lg">IDR 65.000</h6>
-                  </div>
-                </div>
-                <div class="px-4 w-2/12">
-                  <div class="text-center">
-                    <button
-                      data-delete-item="2"
-                      class="text-red-600 border-none focus:outline-none px-3 py-1"
-                    >
-                      X
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- END: Table Item 2 -->
             </div>
           </div>
           <!-- END: shipping cart -->
@@ -294,7 +253,7 @@
                         class="border border-gray-200 focus:outline-none focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full"
                       >
                         <img
-                          :src="jne"
+                          src="jne"
                           alt="logo jne"
                           class="object-contain max-h-full"
                         />
@@ -311,7 +270,7 @@
                         class="border border-gray-200 focus:outline-none focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full"
                       >
                         <img
-                          :src="jnt"
+                          src="jnt"
                           alt="logo j&t"
                           class="object-contain max-h-full"
                         />
@@ -335,7 +294,7 @@
                         class="border border-gray-200 focus:outline-none focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full"
                       >
                         <img
-                          :src="bankBca"
+                          src="bankBca"
                           alt="logo bca"
                           class="object-contain max-h-full"
                         />
@@ -352,7 +311,7 @@
                         class="border border-gray-200 focus:outline-none focus:border-red-200 flex items-center justify-center rounded-xl bg-white w-full h-full"
                       >
                         <img
-                          :src="bankMandiri"
+                          src="bankMandiri"
                           alt="logo bri"
                           class="object-contain max-h-full"
                         />
@@ -371,6 +330,9 @@
                     >
                       Bayar Sekarang
                     </button>
+                    <button @click="addCounter()">
+                      re render
+                    </button>
                   </form>
                 </div>
               </form>
@@ -385,6 +347,8 @@
 
 <script>
 // @ is an alias to /src
+import axios from "axios";
+
 export default {
   name: "Cart",
   data: function () {
@@ -393,16 +357,49 @@ export default {
         orders: [],
         totalOrder: 0,
       },
+
+      products: [],
+
+      state: {
+        content_loaded: false,
+      },
+
+      counter: 1
     };
   },
 
-  created() {
-    let carts = this.$store.getters["cart/getCarts"];
-    let getTotalOrder = this.$store.getters["cart/getTotalOrder"];
+  methods: {
+    getInfoProduct(id) {
+      const x = axios.get("v1/products?id=" + id);
+      return x;
+    },
 
-    this.carts.orders = carts;
-    this.carts.totalOrder = getTotalOrder;
-    console.log(this.carts.totalOrder);
+    addCounter() {
+      this.counter += 1
+    }
+  },
+
+  created() {
+
+    this.carts.orders = this.$store.getters["cart/getCarts"];
+    this.carts.totalOrder = this.$store.getters["cart/getTotalOrder"];
+
+    this.carts.orders.forEach((order, idx) => {
+      order.order_data.forEach((orderData) => {
+        this.getInfoProduct(orderData.product_id).then((res) => {
+          orderData.imageUrl = res.data.data.product_galleries[0].image;
+        });
+      });
+      //If loop has finished then all content loaded
+      idx === this.carts.orders.length - 1
+        ? (this.state.content_loaded = true)
+        : "";
+    });
+
+    if(this.carts.orders.length == 0) {
+      this.state.content_loaded = true
+    }
+
     console.log(this.carts.orders);
   },
 };
