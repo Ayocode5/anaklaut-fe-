@@ -9,7 +9,7 @@ require('@/store/subscriber')
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = "http://anaklaut-backend.xyz/api"
+axios.defaults.baseURL = "https://anaklaut-backend.xyz/api"
 
 //Prevent Flickering
 store.dispatch('auth/attempt', localStorage.getItem('access_token')).then(() => {
