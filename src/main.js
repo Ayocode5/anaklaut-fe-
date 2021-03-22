@@ -9,7 +9,7 @@ require('@/store/subscriber')
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/api"
+axios.defaults.baseURL = "http://faf90c426927.ngrok.io/api"
 
 //Prevent Flickering
 store.dispatch('auth/attempt', localStorage.getItem('access_token')).then(() => {
