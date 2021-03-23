@@ -3,7 +3,7 @@
     <!-- component -->
     <div class="font-sans antialiased w-full overflow-hidden" id="app">
       <nav
-        class="flex items-center justify-between flex-wrap bg-white p-3 md:p-6"
+        class="flex items-center justify-between flex-wrap bg-white p-3 md:px-6"
       >
         <!-- start logo desktop -->
         <router-link to="/">
