@@ -330,9 +330,9 @@
                     >
                       Bayar Sekarang
                     </button>
-                    <button @click="addCounter()">
+                    <!-- <button @click="addCounter()">
                       re render
-                    </button>
+                    </button> -->
                   </form>
                 </div>
               </form>
@@ -373,10 +373,6 @@ export default {
       const x = axios.get("v1/products?id=" + id);
       return x;
     },
-
-    addCounter() {
-      this.counter += 1
-    }
   },
 
   created() {

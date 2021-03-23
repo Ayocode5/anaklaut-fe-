@@ -4,13 +4,13 @@
 			Paling populer
 		</h1>
 
-		<div class="scrollbar pt-2 mx-5 md:mx-14 flex overflow-x-scroll md:overflow-hidden">
+		<div class="scrollbar pt-2 mx-5 md:mx-14 flex overflow-x-scroll">
 			<!-- start ikan -->
 			<div class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-64 rounded-lg max-w-xs bg-white border border-gray-100"
 				v-for="product in products" :key="product.id"
 			>
 				<div class="relative flex items-center justify-center">
-					<img class="relative w-48 h-32 p-3" :src="product.product_galleries[0].image" :key="product.id" alt="" />
+					<img class="relative w-48 h-32 object-cover" :src="product.product_galleries[0].image" :key="product.id" alt="" />
 				</div>
 				<div class="relative text-white px-6 py-5">
 					<span class="block text-black text-xl font-semibold -mb-1"

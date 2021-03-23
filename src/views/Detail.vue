@@ -8,7 +8,7 @@
       <div class="slider">
         <div class="preview">
           <div
-            class="shadow-lg item rounded-lg w-80 md:w-100 h-full overflow-hidden mx-4 md:mx-20"
+            class="shadow-lg item rounded-lg w-80 md:w-100 h-full overflow-hidden mx-4 md:mx-10"
           >
             <img
               :src="product.product_galleries[0].image"
@@ -22,7 +22,7 @@
 
     <!-- Start section kiri -->
     <div
-      class="flex-1 md:sticky md:top-32 mt-0 md:mr-48 md:px-10 md:py-6 md:h-100 mx-5 my-4 w-auto"
+      class="flex-1 md:sticky md:top-32 mt-0 md:mr-60 md:px-10 md:py-6 md:h-100 mx-5 my-4 w-auto"
     >
       <div class="hidden md:block">
         <h2 class="text-5xl text-blue-900 font-semibold mb-5">
@@ -148,20 +148,20 @@
     </div>
     <!-- End section kiri -->
 
-    <div class="w-96 md:w-100 pb-2 md:mx-20">
+    <div class="w-96 md:w-100 pb-2 md:mx-10">
       <!-- Start about -->
       <div class="px-4">
         <h6 class="text-xl font-semibold mb-4">Deskripsi</h6>
         <p class="text-xl leading-7 mb-2">
           {{ product.description }}
         </p>
-        <p class="text-xl leading-7 mb-6">
+        <!-- <p class="text-xl leading-7 mb-6">
           Kepiting terdapat di semua samudra dunia. Ada pula kepiting air tawar
           dan darat, khususnya di wilayah-wilayah tropis. Rajungan adalah
           kepiting yang hidup di perairan laut dan jarang naik ke pantai,
           sedangkan yuyu adalah ketam penghuni perairan tawar (sungai dan
           danau).
-        </p>
+        </p> -->
         <!-- <p class="text-xl leading-7 mb-6">
 					Kepiting beraneka ragam ukurannya, dari ketam kacang, yang lebarnya hanya
 					beberapa milimeter, hingga kepiting laba-laba Jepang, dengan rentangan kaki
@@ -207,12 +207,183 @@
       <!-- End toko -->
     </div>
   </div>
+  <div class="w-auto h-auto">
+			<h1 class="flex text-3xl pl-6 md:pl-16 pt-2 font-semibold">
+				Penilaian
+			</h1>
+
+			<!-- start komen 1 -->
+			<div class="pt-2 mx-3 md:mx-14">
+				<div
+					class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-auto rounded-lg w-full bg-white border border-gray-100"
+				>
+					<div class="flex mx-2">
+						<img class="hidden md:block w-40 h-40 p-5" :src="tokoImg" alt="" />
+						<div class="relative px-3 py-5">
+							<span class="block text-black text-xl font-semibold -mb-1"
+								>Jamal Ahmad</span
+							>
+							<div class="relative pt-3 pb-6">
+								<div class="relative flex">
+									<p class="text-xl font-semibold text-blue-900 mr-2">4.0</p>
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-2" :src="starGray" alt="" />
+								</div>
+								<span class="block text-black text-sm md:text-xl pt-3"
+									>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+									porro obcaecati excepturi, a vel recusandae voluptatibus? Provident
+									architecto, facilis fugiat, molestiae aliquid eaque atque quo molestias
+									repellat quibusdam, quia cum! Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Provident porro obcaecati excepturi, a vel recusandae
+									voluptatibus?</span
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end komen 1 -->
+
+			<!-- start komen 2 -->
+			<div class=" mx-3 md:mx-14">
+				<div
+					class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-auto rounded-lg w-full bg-white border border-gray-100"
+				>
+					<div class="flex mx-2">
+						<img class="hidden md:block w-40 h-40 p-5" :src="tokoImg" alt="" />
+						<div class="relative px-3 py-5">
+							<span class="block text-black text-xl font-semibold -mb-1"
+								>Jamal Ahmad</span
+							>
+							<div class="relative pt-3 pb-6">
+								<div class="relative flex">
+									<p class="text-xl font-semibold text-blue-900 mr-2">4.0</p>
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-2" :src="starGray" alt="" />
+								</div>
+								<span class="block text-black text-sm md:text-xl pt-3"
+									>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+									porro obcaecati excepturi, a vel recusandae voluptatibus? Provident
+									architecto, facilis fugiat, molestiae aliquid eaque atque quo molestias
+									repellat quibusdam, quia cum! Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Provident porro obcaecati excepturi, a vel recusandae
+									voluptatibus?</span
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end komen 2 -->
+
+			<!-- start komen 3 -->
+			<div class=" mx-3 md:mx-14">
+				<div
+					class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-auto rounded-lg w-full bg-white border border-gray-100"
+				>
+					<div class="flex mx-2">
+						<img class="hidden md:block w-40 h-40 p-5" :src="tokoImg" alt="" />
+						<div class="relative px-3 py-5">
+							<span class="block text-black text-xl font-semibold -mb-1"
+								>Jamal Ahmad</span
+							>
+							<div class="relative pt-3 pb-6">
+								<div class="relative flex">
+									<p class="text-xl font-semibold text-blue-900 mr-2">4.0</p>
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-2" :src="starGray" alt="" />
+								</div>
+								<span class="block text-black text-sm md:text-xl pt-3"
+									>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+									porro obcaecati excepturi, a vel recusandae voluptatibus? Provident
+									architecto, facilis fugiat, molestiae aliquid eaque atque quo molestias
+									repellat quibusdam, quia cum! Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Provident porro obcaecati excepturi, a vel recusandae
+									voluptatibus?</span
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end komen 3 -->
+
+			<!-- start komen 4 -->
+			<div class=" mx-3 md:mx-14">
+				<div
+					class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-auto rounded-lg w-full bg-white border border-gray-100"
+				>
+					<div class="flex mx-2">
+						<img class="hidden md:block w-40 h-40 p-5" :src="tokoImg" alt="" />
+						<div class="relative px-3 py-5">
+							<span class="block text-black text-xl font-semibold -mb-1"
+								>Jamal Ahmad</span
+							>
+							<div class="relative pt-3 pb-6">
+								<div class="relative flex">
+									<p class="text-xl font-semibold text-blue-900 mr-2">4.0</p>
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
+									<img class="relative w-6 h-6 mr-2" :src="starGray" alt="" />
+								</div>
+								<span class="block text-black text-sm md:text-xl pt-3"
+									>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+									porro obcaecati excepturi, a vel recusandae voluptatibus? Provident
+									architecto, facilis fugiat, molestiae aliquid eaque atque quo molestias
+									repellat quibusdam, quia cum! Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Provident porro obcaecati excepturi, a vel recusandae
+									voluptatibus?</span
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end komen 4 -->
+			<div class="flex flex-wrap items-end justify-end my-4 mx-6">
+				<div
+					class="w-12 h-auto p-4 mr-4 flex items-center justify-center bg-white border-2 border-gray-200 rounded-lg"
+				>
+					<span class="text-lg font-medium text-gray-200">&lt</span>
+				</div>
+				<div
+					class="w-12 h-auto p-4 mr-4 flex items-center justify-center bg-blue-700 border-2 border-gray-200 rounded-lg"
+				>
+					<span class="text-lg font-semibold text-gray-200">1</span>
+				</div>
+				<div
+					class="w-12 h-auto p-4 mr-4 flex items-center justify-center bg-white border-2 border-gray-200 rounded-lg"
+				>
+					<span class="text-lg font-semibold text-gray-200">2</span>
+				</div>
+				<div
+					class="w-12 h-auto p-4 mr-4 flex items-center justify-center bg-white border-2 border-gray-200 rounded-lg"
+				>
+					<span class="text-lg font-medium text-gray-200">></span>
+				</div>
+			</div>
+		</div>
+		<Special class="mt-6" />
+		<Footer class="mt-6" />
 </template>
 
 <script>
 import starYellow from "../assets/images/design/star-yellow.png";
 import starGray from "../assets/images/design/star-gray.png";
 import tokoImg from "../assets/images/content/toko-img.png";
+import Special from "@/components/Special.vue";
+import Footer from "@/components/Footer.vue";
 // import Footer from "@/components/Footer.vue"
 
 import axios from "axios";
@@ -222,7 +393,8 @@ export default {
   name: "Detail",
 
   components: {
-    // Footer
+    Special,
+		Footer,
   },
 
   data: function () {

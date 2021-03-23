@@ -5,7 +5,7 @@
 		</h1>
 
 		<div
-			class="scrollbar pt-2 mx-5 md:mx-14 flex overflow-x-scroll md:overflow-hidden"
+			class="scrollbar pt-2 mx-5 md:mx-14 flex overflow-x-scroll"
 		>
 			<!-- start ikan -->
 			<div

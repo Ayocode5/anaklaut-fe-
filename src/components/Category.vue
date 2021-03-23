@@ -4,7 +4,7 @@
 			Kategori
 		</h1>
 
-		<div class="pt-2 mx-5 md:mx-10 flex flex-wrap">
+		<div class="pt-2 mx-5 md:mx-7 flex flex-wrap">
 			<!-- start ikan -->
 			<div
 				class="flex-shrink-0 m-6 relative overflow-hidden rounded-lg shadow-xl max-w-xs bg-white"
