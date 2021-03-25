@@ -178,7 +178,8 @@ export default {
             },
 
             error: {
-                message: null
+				message: null,
+				error_form_style: "border-2 border-red-600"
             }
         }
     },

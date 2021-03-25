@@ -1,6 +1,6 @@
 export default {
-    namespaced: true,
 
+    namespaced: true,
     state: {
         payload: null,
         results: { data: { data: null } },

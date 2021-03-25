@@ -67,9 +67,14 @@
                     <h6>Produk</h6>
                   </div>
                 </div>
-                <div class="px-4 md:w-5/12">
+                <div class="px-4 md:w-7/12">
                   <div class="">
                     <h6>Harga</h6>
+                  </div>
+                </div>
+                <div class="px-4 md:w-5/12">
+                  <div class="">
+                    <h6>Jumlah</h6>
                   </div>
                 </div>
                 <div class="px-4 md:w-2/12">
@@ -97,18 +102,19 @@
             <!-- END: Cart empty wrapper -->
 
             <div
-              v-for="(admin, idx) in carts.orders"
-              :key="idx"
+              v-for="(admin, order_index) in carts.orders"
+              :key="order_index"
               class="p-2 bg-gray-50 rounded-lg my-2"
             >
               <h5 class="font-semibold text-lg md:text-xl leading-8 my-2">
                 {{ admin.order_from_name }}
               </h5>
+              <hr class="border-b-2 border-gray-200">
               <!-- START: Table Item 1 -->
               <div
-                v-for="(order, index) in admin.order_data"
-                :key="index"
-                class="flex flex-start flex-wrap items-center mb-4 -mx-4"
+                v-for="(order, product_index) in admin.order_data"
+                :key="product_index"
+                class="flex flex-start flex-wrap items-center my-4 -mx-4"
                 data-row="1"
               >
                 <div class="px-4 flex-none">
@@ -138,9 +144,16 @@
                     <h6 class="font-semibold text-lg">Rp. {{ order.product_price }}</h6>
                   </div>
                 </div>
+                <div
+                  class="px-4 w-auto md:w-5/12 flex-none md:flex-1 hidden md:block"
+                >
+                  <div class="">
+                    <h6 class="flex justify-center items-center font-semibold text-lg">5 kg</h6>
+                  </div>
+                </div>
                 <div class="px-4 w-2/12">
                   <div class="text-center">
-                    <button @click="delProductFromCart(idx)"
+                    <button @click="delProductFromCart(order_index, product_index)"
                       data-delete-item="1"
                       class="text-red-600 border-none focus:outline-none px-3 py-1"
                     >
@@ -335,8 +348,12 @@ export default {
   },
 
   methods: {
-    delProductFromCart(index) {
-      this.$store.dispatch('cart/delProductFromCart', index)
+    delProductFromCart(order_index, product_index) {
+      // console.log(order_index)
+      // console.log(product_index)
+      let params = {order_index, product_index}
+      console.log(params);
+      this.$store.dispatch('cart/delProductFromCart', params)
     }
   },
 
