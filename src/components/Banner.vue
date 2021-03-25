@@ -16,7 +16,9 @@
 							Untuk Masa Depan Yang Cerah
 						</h2>
 						<div class="card-actions">
-							<button class="btn btn-primary rounded-full px-10">Bergabung</button>
+							<router-link to="/signup">
+								<button class="btn btn-primary rounded-full px-10">Bergabung</button>
+							</router-link>
 						</div>
 					</div>
 					<!-- end content -->
@@ -42,9 +44,11 @@
 							Olah Ikan dengan Lebih Bijak
 						</h2>
 						<div class="card-actions">
-							<button class="btn btn-primary rounded-full ml-2 px-10">
-								Mulai Belanja
-							</button>
+						<a href="#belanja">
+								<button class="btn btn-primary rounded-full ml-2 px-10">
+									Mulai Belanja
+								</button>
+							</a>
 						</div>
 					</div>
 					<!-- end content -->

@@ -196,16 +196,63 @@
           <!-- Dropdown -->
 
           <!-- start daftar btn -->
-          <template v-if="!authenticated">
+          <!-- <template v-if="!authenticated">
             <router-link to="/signup" class="flex-none my-2">
               <button type="submit" class="btn btn-primary px-6 ml-4">
                 Daftar
               </button>
             </router-link>
-          </template>
-          <template v-else>
-            <p class="btn btn-circle mr-2">{{ user.name }}</p>
-            <button class="btn btn-primary" @click="logout">Logout</button>
+          </template> -->
+          <template>
+            <!-- desktop mode -->
+            <div class="flex justify-center items-center hidden md:block">
+              <div class="bg-white dark:bg-gray-800 w-64 flex justify-center items-center">
+                  <div @click="toggle" class="relative border-b-4 border-transparent py-3">
+                    <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                      <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" class="w-full h-full object-cover">
+                      </div>
+                      <div class="font-semibold dark:text-white text-gray-900 text-lg">
+                        <div class="cursor-pointer">{{ user.name }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div :class="open ? 'block' : 'hidden'" class="absolute -mt-1 w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg border dark:border-transparent mt-5">
+                  <ul class="space-y-3 dark:text-white">
+                    <li class="font-medium">
+                      <a @click="logout" href="#" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600">
+                        <div class="mr-3 text-red-600">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                        </div>
+                        Logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+            <!-- mobile mode -->
+            <div class="flex block md:hidden">
+              <div class="bg-white dark:bg-gray-800 w-64 flex justify-center items-center">
+                  <div class="relative border-b-4 border-transparent py-3">
+                    <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                      <div class="flex font-semibold dark:text-white text-gray-900 text-lg">
+                        <div class="cursor-pointer mr-6">{{ user.name }}</div>
+                        <div class="text-red-600">
+                          <a @click="logout" href="#">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+
+            <!-- <p class="btn btn-circle mr-2">{{ user.name }}</p>
+            <button class="btn btn-primary" @click="logout">Logout</button> -->
           </template>
           <!-- end daftar btn -->
         </div>

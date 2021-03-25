@@ -177,24 +177,24 @@
           <div class="flex flex-wrap">
             <div class="mx-16 md:mx-0">
               <img :src="tokoImg" alt="" class="px-4 w-50 h-50" />
-              <p class="text-xl font-semibold py-2">{{ product.owner.name }}</p>
+              <p style="margin: 7%;" class="text-xl font-semibold py-2">{{ product.owner.name }}</p>
             </div>
             <div class="flex flex-wrap">
               <div class="mx-4 md:mx-3 my-3 md:my-6">
-                <p class="text-xl font-medium text-gray-400">Penilaian</p>
-                <p class="text-xl font-medium text-blue-600">100RB</p>
+                <p class="text-lg font-medium text-gray-400">Penilaian</p>
+                <p class="text-lg font-medium text-blue-600">100RB</p>
               </div>
               <div class="mx-9 md:mx-3 my-3 md:my-6">
-                <p class="text-xl font-medium text-gray-400">Produk</p>
-                <p class="text-xl font-medium text-blue-600">150</p>
+                <p class="text-lg font-medium text-gray-400">Produk</p>
+                <p class="text-lg font-medium text-blue-600">150</p>
               </div>
               <div class="mx-4 md:mx-3 my-3 md:my-6">
-                <p class="text-xl font-medium text-gray-400">Bergabung</p>
-                <p class="text-xl font-medium text-blue-600">2021</p>
+                <p class="text-lg font-medium text-gray-400">Bergabung</p>
+                <p class="text-lg font-medium text-blue-600">2021</p>
               </div>
               <div class="mx-4 md:mx-3 my-3 md:my-6">
-                <p class="text-xl font-medium text-gray-400">Pengikut</p>
-                <p class="text-xl font-medium text-blue-600">100JT</p>
+                <p class="text-lg font-medium text-gray-400">Pengikut</p>
+                <p class="text-lg font-medium text-blue-600">100JT</p>
               </div>
             </div>
           </div>
