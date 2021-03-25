@@ -206,10 +206,10 @@
           <template>
             <!-- desktop mode -->
             <div class="flex justify-center items-center hidden md:block">
-              <div class="bg-white dark:bg-gray-800 w-64 flex justify-center items-center">
+              <div class="bg-white dark:bg-gray-800 w-64 flex">
                   <div @click="toggle" class="relative border-b-4 border-transparent py-3">
                     <div class="flex justify-center items-center space-x-3 cursor-pointer">
-                      <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                      <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-600">
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" class="w-full h-full object-cover">
                       </div>
                       <div class="font-semibold dark:text-white text-gray-900 text-lg">
