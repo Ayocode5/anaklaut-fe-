@@ -205,7 +205,7 @@
           </template> -->
           <template>
             <!-- desktop mode -->
-            <div class="flex justify-center items-center hidden md:block">
+            <div class="flex mx-4 hidden md:block">
               <div class="bg-white dark:bg-gray-800 w-64 flex">
                   <div @click="toggle" class="relative border-b-4 border-transparent py-3">
                     <div class="flex justify-center items-center space-x-3 cursor-pointer">
@@ -213,6 +213,7 @@
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" class="w-full h-full object-cover">
                       </div>
                       <div class="font-semibold dark:text-white text-gray-900 text-lg">
+                        <!-- <div class="cursor-pointer">Joko</div> -->
                         <div class="cursor-pointer">{{ user.name }}</div>
                       </div>
                     </div>
@@ -233,11 +234,12 @@
             </div>
 
             <!-- mobile mode -->
-            <div class="flex block md:hidden">
-              <div class="bg-white dark:bg-gray-800 w-64 flex justify-center items-center">
+            <div class="flex mx-4 block md:hidden">
+              <div class="bg-white dark:bg-gray-800 w-64 flex">
                   <div class="relative border-b-4 border-transparent py-3">
                     <div class="flex justify-center items-center space-x-3 cursor-pointer">
                       <div class="flex font-semibold dark:text-white text-gray-900 text-lg">
+                        <!-- <div class="cursor-pointer mr-6">Joko</div> -->
                         <div class="cursor-pointer mr-6">{{ user.name }}</div>
                         <div class="text-red-600">
                           <a @click="logout" href="#">
