@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="flex mx-8 mt-4 text-2xl text-bold text-blue-900">
-      Hasil Pencarian Anda: 
+      Hasil Pencarian Anda:
       {{ searchData.data.data.length }}
     </h1>
     <div class="flex flex-warp">
@@ -17,7 +17,7 @@
             class="select-none container block relative cursor-pointer text-xl pl-8"
             >Jakarta
             <input
-              class="absolute opacity-0 left-0 top-0 cursor-pointer"
+              class="absolute opacity-100 h-6 w-6 left-0 top-0 cursor-pointer"
               type="checkbox"
             />
             <span
@@ -30,7 +30,7 @@
             class="select-none container block relative cursor-pointer text-xl pl-8"
             >Bekasi
             <input
-              class="absolute opacity-0 left-0 top-0 cursor-pointer"
+              class="absolute opacity-100 h-6 w-6 left-0 top-0 cursor-pointer"
               type="checkbox"
             />
             <span
@@ -43,7 +43,7 @@
             class="select-none container block relative cursor-pointer text-xl pl-8"
             >Bogor
             <input
-              class="absolute opacity-0 left-0 top-0 cursor-pointer"
+              class="absolute opacity-100 h-6 w-6 left-0 top-0 cursor-pointer"
               type="checkbox"
             />
             <span
@@ -62,7 +62,7 @@
             class="select-none container block relative cursor-pointer text-xl pl-8"
             >COD (Cash On Delivery)
             <input
-              class="absolute opacity-0 left-0 top-0 cursor-pointer"
+              class="absolute opacity-100 h-6 w-6 left-0 top-0 cursor-pointer"
               type="checkbox"
             />
             <span
@@ -116,13 +116,20 @@
               >Jakarta Timur</span
             >
           </div>
-          <router-link :to="'/details/'+product.id" class="stretched-link">
+          <router-link :to="'/details/' + product.id" class="stretched-link">
             <!-- fake children -->
           </router-link>
         </div>
       </div>
-      <div v-if="searchData.data.data.length == 0" class="mx-6 md:mx-0 flex flex-wrap">
-        <h1>Product not found!</h1>
+      <div
+        v-if="searchData.data.data.length == 0"
+        class=""
+      >
+        <div class="card mt-6 ml-52 p-0">
+          <div class="card-body bg-yellow-300">
+            Produk tidak ditemukan!
+            </div>
+        </div>
       </div>
       <!-- end produk -->
     </div>

@@ -44,8 +44,8 @@
 					class="mt-12 text-2xl font-semibold text-black tracking-ringtighter sm:text-3xl title-font"
 				>
 					Masuk ke akun Anda
-				</h1>
-                <h3 v-if="error.message">{{ error.message }}</h3>
+				</h1> 
+                <h3 class="bg-red-300 p-2 rounded-sm text-center" v-if="error.message">{{ error.message }}</h3>
 				<form class="mt-6" @submit.prevent="submit">
 					<div>
 						<label
@@ -57,7 +57,7 @@
 							name=""
 							id=""
 							placeholder="Your Email "
-							class="w-full px-4 py-2 mt-2 text-base text-black transition duration-500 ease-in-out transform bg-gray-100 border-transparent rounded-lg focus:outline-none ring-offset-current ring-offset-2 "
+							class="w-full px-4 py-2 mt-2 text-base text-black transition duration-500 ease-in-out transform bg-gray-100 rounded-lg focus:outline-none ring-offset-current ring-offset-2"
 							autofocus
 							autocomplete
 							required

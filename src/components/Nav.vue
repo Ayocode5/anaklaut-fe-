@@ -104,39 +104,41 @@
 
           <div class="flex inline-block my-2">
             <!-- start icon cart -->
-            
-              <router-link to="/cart" class="btn btn-square btn-ghost">
-                <svg
-                  width="35"
-                  height="34"
-                  viewBox="0 0 35 34"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.8788 32.1818C13.6988 32.1818 14.3636 31.517 14.3636 30.697C14.3636 29.8769 13.6988 29.2121 12.8788 29.2121C12.0587 29.2121 11.3939 29.8769 11.3939 30.697C11.3939 31.517 12.0587 32.1818 12.8788 32.1818Z"
-                    stroke="#C4C4C4"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M29.2121 32.1818C30.0322 32.1818 30.697 31.517 30.697 30.697C30.697 29.8769 30.0322 29.2121 29.2121 29.2121C28.3921 29.2121 27.7273 29.8769 27.7273 30.697C27.7273 31.517 28.3921 32.1818 29.2121 32.1818Z"
-                    stroke="#C4C4C4"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M1 1H6.93939L10.9188 20.8821C11.0546 21.5657 11.4265 22.1798 11.9694 22.6169C12.5123 23.0539 13.1916 23.2861 13.8885 23.2727H28.3212C29.0181 23.2861 29.6974 23.0539 30.2403 22.6169C30.7832 22.1798 31.1551 21.5657 31.2909 20.8821L33.6667 8.42424H8.42424"
-                    stroke="#C4C4C4"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <h1 style="margin-left: -18px; margin-bottom: 2px; color: gray">{{ totalOrder }}</h1>
-              </router-link>
+
+            <router-link to="/cart" class="btn btn-square btn-ghost">
+              <svg
+                width="35"
+                height="34"
+                viewBox="0 0 35 34"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.8788 32.1818C13.6988 32.1818 14.3636 31.517 14.3636 30.697C14.3636 29.8769 13.6988 29.2121 12.8788 29.2121C12.0587 29.2121 11.3939 29.8769 11.3939 30.697C11.3939 31.517 12.0587 32.1818 12.8788 32.1818Z"
+                  stroke="#C4C4C4"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M29.2121 32.1818C30.0322 32.1818 30.697 31.517 30.697 30.697C30.697 29.8769 30.0322 29.2121 29.2121 29.2121C28.3921 29.2121 27.7273 29.8769 27.7273 30.697C27.7273 31.517 28.3921 32.1818 29.2121 32.1818Z"
+                  stroke="#C4C4C4"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M1 1H6.93939L10.9188 20.8821C11.0546 21.5657 11.4265 22.1798 11.9694 22.6169C12.5123 23.0539 13.1916 23.2861 13.8885 23.2727H28.3212C29.0181 23.2861 29.6974 23.0539 30.2403 22.6169C30.7832 22.1798 31.1551 21.5657 31.2909 20.8821L33.6667 8.42424H8.42424"
+                  stroke="#C4C4C4"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h1 style="margin-left: -18px; margin-bottom: 2px; color: gray">
+                {{ totalOrder }}
+              </h1>
+            </router-link>
             <!-- end icon cart -->
 
             <!-- start icon chat -->
@@ -191,6 +193,8 @@
             <!-- end icon notif -->
           </div>
 
+          <!-- Dropdown -->
+
           <!-- start daftar btn -->
           <template v-if="!authenticated">
             <router-link to="/signup" class="flex-none my-2">
@@ -212,7 +216,6 @@
 
 <style scoped>
 .container:hover input ~ .checkmark {
-    
 }
 .container input:checked ~ .checkmark {
   background-color: #0078d4;
@@ -274,7 +277,7 @@ export default {
 
       await axios.get("v1/products?name=" + this.searchBox).then((res) => {
         // console.log(res.data);
-        this.setSearchResults(res.data)
+        this.setSearchResults(res.data);
       });
 
       if (this.$route.path == "/search") {
@@ -306,9 +309,9 @@ export default {
       handler() {
         // console.log("nambah nih")
         // console.log(this.$store.getters['cart/getTotalOrder'])
-        this.totalOrder = this.$store.getters['cart/getTotalOrder']
-      }
-    }
-  }
+        this.totalOrder = this.$store.getters["cart/getTotalOrder"];
+      },
+    },
+  },
 };
 </script>

@@ -9,11 +9,15 @@ export default {
 
                 // { 
                 //     order_from: null,
+                //     order_from_name: null,
                 //     customer_id: null,
                 //     order_data: [
                 //         {
                 //             product_id: null,
                 //             quantity: null,
+                //             product_name: null,
+                //             product_image: null,
+                //             product_price: null
                 //         },
                 //     ],
                 // },
@@ -34,7 +38,17 @@ export default {
         },
 
         getTotalOrder(state) {
-            return state.carts.totalOrder
+
+            state.carts.totalOrder = 0
+            state.carts.orders.forEach(order => {
+
+                order.order_data.forEach(val => {
+                    state.carts.totalOrder += val.quantity
+                })
+            })
+            
+            return state.carts.totalOrder;
+
         }
     },
 
@@ -42,13 +56,12 @@ export default {
 
         ADD_PRODUCT(state, data) {
 
-            //Hitung Total Order
-            state.carts.totalOrder += data.orders[0].order_data[0].quantity
-
+            //Kalau Cart masih kosong tambah dlu
             if (state.carts.orders.length < 1) {
 
                 state.carts.orders.push(data.orders[0])
 
+                //buat catatan order
                 state.carts.orderFromHistory.push(data.orders[0].order_from)
                 state.carts.orderProductHistory.push(data.orders[0].order_data[0].product_id)
 
@@ -57,17 +70,14 @@ export default {
                 //Kalau barang masuk dengan admin_id X sudah di orderFromHistori maka tambah order_data nya
                 if (state.carts.orderFromHistory.includes(data.orders[0].order_from)) {
 
-                    // console.log("pernah pesen di admin " + data.orders[0].order_from)
 
-                    //kalau barang yg dipesan (product_id) sudah ada di order_data maka tambahkan quantiti nya
+                    //kalau barang yg dipesan (product_id) sudah ada di order_data maka tambahkan quantity nya
                     if (state.carts.orderProductHistory.includes(data.orders[0].order_data[0].product_id)) {
-
-                        // console.log("produk id "+ data.orders[0].order_data[0].product_id + " ada maka ubah quantitinya")
                         
                         state.carts.orders.forEach(order => {
                             order.order_data.forEach(dataOrder => {
                                 if(dataOrder.product_id == data.orders[0].order_data[0].product_id) {
-                                    console.log("wkwkwkwkwk")
+
                                     dataOrder.quantity += data.orders[0].order_data[0].quantity
                                 }
                             })
@@ -75,8 +85,6 @@ export default {
 
                     //kalau barang yg dipesan (product_id) belum ada maka tambah order_data
                     } else {
-
-                        // console.log("produk id " + data.orders[0].order_data[0].product_id + " sudah ada maka produk ditambahkan")
 
                         state.carts.orders.forEach(order => {
                             if(order.order_from == data.orders[0].order_from) {
@@ -90,7 +98,6 @@ export default {
                     }
 
                 } else {
-                    // console.log("belum pernah pesen di admin " + data.orders[0].order_from)
                     
                     state.carts.orders.push(data.orders[0])
                     
@@ -101,17 +108,10 @@ export default {
             }
         },
 
-        DEL_PRODUCT(state, id) {
-            state.carts.orders.forEach(order => {
-
-                order.order_data.forEach((product, index) => {
-                    //jika id produk cocok maka hapus produk ( product_id dan quantity ) dari produk data dari array order_data
-                    if (product.product_id == id) {
-                        order.order_data.splice(index, 1)
-                    }
-                })
-
-            });
+        DEL_PRODUCT(state, index) { //parameter ke dua adalah index dari array orders
+            console.log("Delete Orders "+index)
+            state.carts.orders.splice(index, 1)
+            console.log(state.carts.orders)
         }
     },
 
@@ -120,8 +120,8 @@ export default {
             commit('ADD_PRODUCT', data)
         },
 
-        delProductFromCart({ commit }, id) {
-            commit('DEL_PRODUCT', id)
+        delProductFromCart({ commit }, index) {
+            commit('DEL_PRODUCT', index)
         }
     },
 

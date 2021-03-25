@@ -1,6 +1,6 @@
 <template class="container mx-auto">
-  <div>
-    <div v-if="state.contents_loaded" class="flex flex-wrap my-4 md:my-12">
+  <div v-if="state.contents_loaded">
+    <div class="flex flex-wrap my-4 md:my-12">
       <div class="w-auto md:hidden px-4">
         <h2 class="text-4xl text-blue-900 font-semibold">{{ product.name }}</h2>
         <span class="text-xl">IDR {{ product.price }}</span>
@@ -9,12 +9,12 @@
         <div class="slider">
           <div class="preview">
             <div
-              class="shadow-lg item rounded-lg w-80 md:w-100 h-full overflow-hidden mx-4"
-            >
+              class="shadow-lg item rounded-lg w-full md:w-100 h-full overflow-hidden mx-2" 
+             >
               <img
                 :src="product.product_galleries[0].image"
                 alt=""
-                class="object-cover w-auto h-full rounded-lg"
+                class="object-cover w-100 h-full rounded-lg"
               />
             </div>
           </div>
@@ -203,6 +203,7 @@
         </div>
         <!-- End toko -->
       </div>
+      
     </div>
     <div class="w-auto h-auto">
       <h1 class="flex text-3xl pl-6 md:pl-16 pt-2 font-semibold">Penilaian</h1>
@@ -315,41 +316,6 @@
       </div>
       <!-- end komen 3 -->
 
-      <!-- start komen 4 -->
-      <div class="mx-3 md:mx-14">
-        <div
-          class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-auto rounded-lg w-full bg-white border border-gray-100"
-        >
-          <div class="flex mx-2">
-            <img class="hidden md:block w-40 h-40 p-5" :src="tokoImg" alt="" />
-            <div class="relative px-3 py-5">
-              <span class="block text-black text-xl font-semibold -mb-1"
-                >Jamal Ahmad</span
-              >
-              <div class="relative pt-3 pb-6">
-                <div class="relative flex">
-                  <p class="text-xl font-semibold text-blue-900 mr-2">4.0</p>
-                  <img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
-                  <img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
-                  <img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
-                  <img class="relative w-6 h-6 mr-1" :src="starYellow" alt="" />
-                  <img class="relative w-6 h-6 mr-2" :src="starGray" alt="" />
-                </div>
-                <span class="block text-black text-sm md:text-xl pt-3"
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident porro obcaecati excepturi, a vel recusandae
-                  voluptatibus? Provident architecto, facilis fugiat, molestiae
-                  aliquid eaque atque quo molestias repellat quibusdam, quia
-                  cum! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident porro obcaecati excepturi, a vel recusandae
-                  voluptatibus?</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end komen 4 -->
       <div class="flex flex-wrap items-end justify-end my-4 mx-6">
         <div
           class="w-12 h-auto p-4 mr-4 flex items-center justify-center bg-white border-2 border-gray-200 rounded-lg"
@@ -490,10 +456,14 @@ export default {
         orders: [
           {
             order_from: this.product.owner.id,
+            order_from_name: this.product.owner.name,
             customer_id: this.user_id,
             order_data: [
               {
                 product_id: this.product.id,
+                product_name: this.product.name,
+                product_image: this.product.product_galleries[0].image,
+                product_price: this.product.price,
                 quantity: this.order.quantity,
               },
             ],
