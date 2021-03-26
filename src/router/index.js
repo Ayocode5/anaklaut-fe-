@@ -66,7 +66,7 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Success.vue'),
     meta: {
-      newPaymentExist: store.getters.getStatusOrder
+      newPaymentExist: true
     }
   },
   {

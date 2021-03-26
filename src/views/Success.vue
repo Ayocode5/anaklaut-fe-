@@ -75,5 +75,9 @@ export default {
 			success: success,
 		};
 	},
+
+	created() {
+		this.$store.state.status_order = false;
+	}
 };
 </script>

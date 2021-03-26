@@ -303,6 +303,10 @@ export default {
     }),
   },
 
+  created() {
+    this.totalOrder = this.$store.getters["cart/getTotalOrder"];
+  },
+
   watch: {
     "$store.state.cart.carts.orders": {
       deep: true,
