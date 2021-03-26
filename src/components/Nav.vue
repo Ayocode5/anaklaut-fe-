@@ -58,7 +58,8 @@
         <div
           :class="open ? 'block' : 'hidden'"
           class="w-full sm:flex sm:items-center sm:w-auto"
-        >
+          >
+          
           <!-- start search box -->
 
           <div class="flex-1 lg:flex-none my-2">
@@ -197,15 +198,84 @@
 
           <!-- start daftar btn -->
           <template v-if="!authenticated">
-            <router-link to="/signup" class="flex-none my-2">
-              <button type="submit" class="btn btn-primary px-6 ml-4">
-                Daftar
-              </button>
-            </router-link>
+            <a href="/components/modal#my-modal" class="btn btn-primary px-6">Daftar</a> 
+          <div id="my-modal" class="modal">
+            <div class="modal-box">
+              <a href="#" class="flex items-end justify-end text-red-600 text-lg mx-3 my-1">X</a>
+              <div class="flex space-x-2">
+                
+                <a href="https://anaklaut-backend.xyz/admin/register" class="flex items-center justify-center bg-white border-2 border-gray-100 rounded-lg p-6 w-2/4 mx-4 hover:border-indigo-700">
+                  
+                    <button type="submit" class="focus:outline-none">
+                      <img src="https://img.icons8.com/nolan/64/device-shop.png"/>
+                      <h1>Penjual</h1>
+                    </button>
+                </a>
+                
+                <a href='/signin' class="flex items-center justify-center bg-white border-2 border-gray-100 rounded-lg p-6 w-2/4 mx-4 hover:border-indigo-700">
+                  <div class="flex items-center justify-center w-2/4">
+                    <button type="submit" class=" focus:outline-none">
+                      <img src="https://img.icons8.com/nolan/64/fast-cart.png"/>
+                      <h1>Pembeli</h1>
+                    </button>
+                  </div>
+                </a>
+              </div> 
+          </div>
+        </div>
           </template>
           <template v-else>
-            <p class="btn btn-circle mr-2">{{ user.name }}</p>
-            <button class="btn btn-primary" @click="logout">Logout</button>
+            <!-- desktop mode -->
+            <div class="flex mx-4 hidden md:block">
+              <div class="bg-white dark:bg-gray-800 w-auto flex">
+                  <div @click="toggle" class="relative border-b-4 border-transparent py-3">
+                    <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                      <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-600">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" class="w-full h-full object-cover">
+                      </div>
+                      <div class="font-semibold dark:text-white text-gray-900 text-lg">
+                        <!-- <div class="cursor-pointer">Joko Joko Joko </div> -->
+                        <div class="cursor-pointer">{{ user.name }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div :class="open ? 'hidden' : 'block'" class="absolute -mt-1 w-auto px-5 py-3 dark:bg-gray-800 bg-white rounded-lg border dark:border-transparent mt-5">
+                  <ul class="space-y-3 dark:text-white">
+                    <li class="font-medium">
+                      <a @click="logout" href="#" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:text-red-600">
+                        <div class="mr-3 text-red-600">
+                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                        </div>
+                        Logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+            <!-- mobile mode -->
+            <div class="flex mx-4 block md:hidden">
+              <div class="bg-white dark:bg-gray-800 w-64 flex">
+                  <div class="relative border-b-4 border-transparent py-3">
+                    <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                      <div class="flex font-semibold dark:text-white text-gray-900 text-lg">
+                        <!-- <div class="cursor-pointer mr-6">Joko</div> -->
+                        <div class="cursor-pointer mr-6">{{ user.name }}</div>
+                        <div class="text-red-600">
+                          <a @click="logout" href="#">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+
+            <!-- <p class="btn btn-circle mr-2">{{ user.name }}</p>
+            <button class="btn btn-primary" @click="logout">Logout</button> -->
           </template>
           <!-- end daftar btn -->
         </div>
@@ -251,15 +321,33 @@ export default {
 
   data() {
     return {
-      open: false,
+      open: true,
       searchBox: "",
       totalOrder: 0,
     };
   },
 
+
+
   methods: {
     toggle() {
       this.open = !this.open;
+    },
+
+    dark() {
+    const html=document.querySelector('html')
+    const btnToggle=document.querySelector('.toggle')   
+
+    let status=false //toggle the dark mode
+    btnToggle.addEventListener('click',()=>{
+      if (!status) {
+          html.classList.add('dark')
+          status=!status
+      }else{
+          html.classList.remove('dark')
+          status=!status
+      }
+    })
     },
 
     ...mapActions({

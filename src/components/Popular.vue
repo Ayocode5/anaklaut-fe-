@@ -4,7 +4,7 @@
 			Paling populer
 		</h1>
 
-		<div class="scrollbar pt-2 mx-5 md:mx-14 flex overflow-x-scroll">
+		<div class="scrollbar pt-2 mx-5 md:mx-14 flex md:items-center md:justify-center overflow-x-scroll">
 			<!-- start ikan -->
 			<div class="flex-shrink-0 my-6 mx-2 md:mx-4 relative overflow-hidden h-64 rounded-lg max-w-xs bg-white border border-gray-100"
 				v-for="product in products" :key="product.id"

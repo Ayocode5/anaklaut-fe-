@@ -1,11 +1,11 @@
 <template>
-	<div class="w-full h-auto">
+	<div id="belanja" class="w-full h-auto">
 		<h1 class="flex text-3xl pl-6 md:pl-16 pt-8 font-semibold">
 			Khusus untuk kamu
 		</h1>
 
 		<div
-			class="scrollbar pt-2 mx-5 md:mx-14 flex overflow-x-scroll"
+			class="scrollbar pt-2 mx-5 md:mx-14 flex md:items-center md:justify-center overflow-x-scroll"
 		>
 			<!-- start ikan -->
 			<div
